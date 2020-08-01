@@ -29,7 +29,9 @@ function CadastroCategoria() {
   }
 
   useEffect(() => {
-    const URLCategorias = 'http://localhost:8080/categorias';
+    const URLCategorias = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8080/categorias'
+      : 'https://obeflix.herokuapp.com/categorias';
     fetch(URLCategorias)
       .then(async (respostaDoServidor) => {
         const resposta = await respostaDoServidor.json();
