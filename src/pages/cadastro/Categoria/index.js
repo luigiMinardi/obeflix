@@ -22,6 +22,11 @@ function CadastroCategoria() {
   }
 
   function handleChange(infosDoEvento) {
+    const hex = new RegExp(/[0-9A-Fa-f]{6}/g);
+    const isHex = infosDoEvento.target.value;
+    if (hex.test(isHex)) {
+      document.documentElement.style.setProperty('--button', infosDoEvento.target.value);
+    }
     setValue(
       infosDoEvento.target.getAttribute('name'),
       infosDoEvento.target.value,
